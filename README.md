@@ -24,7 +24,7 @@ The project allows users with different roles (Superuser, Staff, Normal User) to
 ## 🛠️ Tech Stack  
 - **Backend:** Python, Django  
 - **Frontend:** HTML, CSS  
-- **Database:** SQLite (default), MySQL (optional)  
+- **Database:** SQLite 
 
 ---
 
