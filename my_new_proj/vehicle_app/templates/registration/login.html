@@ -1,0 +1,33 @@
+{% extends 'vehicle_app/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center; margin-bottom:20px;">Login</h2>
+
+<form method="post" style="
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    ">Login</button>
+</form>
+
+<p style="text-align:center;">Use your superuser credentials to log in.</p>
+<a href="{% url 'vehicle_list' %}" style="display:block; text-align:center; margin-top:10px;">Back to Vehicle List</a>
+{% endblock %}

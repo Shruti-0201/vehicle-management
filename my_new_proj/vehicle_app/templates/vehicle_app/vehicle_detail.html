@@ -1,0 +1,52 @@
+{% extends 'vehicle_app/base.html' %}
+
+
+{% block title %}Vehicle Detail{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center; margin-bottom:20px;">{{ vehicle.vehicle_number }} - {{ vehicle.vehicle_model }}</h2>
+
+<div style="
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    background-color:#f9f9f9;
+">
+    <p><strong>Type:</strong> {{ vehicle.vehicle_type }}</p>
+    <p><strong>Description:</strong> {{ vehicle.vehicle_description }}</p>
+</div>
+
+<div style="text-align:center; margin-top:10px;">
+    <a href="{% url 'vehicle_list' %}" style="
+        padding:10px 20px;
+        background-color:#4CAF50;
+        color:white;
+        border-radius:4px;
+        text-decoration:none;
+        margin-right:5px;
+    ">Back to List</a>
+
+    {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'vehicle_update' vehicle.pk %}" style="
+            padding:10px 20px;
+            background-color:#2196F3;
+            color:white;
+            border-radius:4px;
+            text-decoration:none;
+            margin-right:5px;
+        ">Edit</a>
+    {% endif %}
+
+    {% if user.is_superuser %}
+    <a href="{% url 'vehicle_delete' vehicle.pk %}" style="
+            padding:10px 20px;
+            background-color:#f44336;
+            color:white;
+            border-radius:4px;
+            text-decoration:none;
+        ">Delete</a>
+    {% endif %}
+</div>
+{% endblock %}
